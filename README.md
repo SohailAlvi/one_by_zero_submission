@@ -127,18 +127,29 @@ terraform apply
 ```bash
 # This is the actual API deployed in AWS Infra
 
-
 curl --location 'https://fqdgpmbgc9.execute-api.us-east-1.amazonaws.com/Staging/api-ml-model' \
 --header 'Content-Type: application/json' \
 --data '{
     "input": {
+    
     "usage_freq": 1,
-    "amount_spend": 45665656,
-    "uniq_merchant": 5,
-    "k": 1
-    }
+    "amount_spend": 40000,
+    "uniq_merchant": 89,
+    "k": 6,
+    "name": "C_Mason"
+    
+}
 }'
-
+```
+Expected response:
+```json
+{
+    "message": "Received data successfully",
+    "response": {
+        "predicted_cluster": 4,
+        "will_spend": true
+    }
+}
 ```
 
 ## Model Versioning

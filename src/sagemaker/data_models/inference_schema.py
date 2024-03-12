@@ -7,3 +7,4 @@ class InferenceSchema(pydantic.BaseModel):
     amount_spend: Union[int, float]
     uniq_merchant: int
     k: int
+    name: str

@@ -11,8 +11,7 @@ role_arn = os.environ.get("ROLE_ARN")
 instance_type = os.environ.get("INSTANCE_TYPE")
 
 # Create a SageMaker model
-sagemaker_model = Model(image_uri=inference_image,
-                        role=role_arn)
+sagemaker_model = Model(image_uri=inference_image, name=sagemaker_model_name, role=role_arn)
 
 # Deploy the model as an endpoint
 predictor = sagemaker_model.deploy(instance_type=instance_type, initial_instance_count=1)
